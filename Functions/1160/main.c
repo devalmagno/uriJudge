@@ -22,7 +22,11 @@ void mostraValor(T) {
 
         anos = calculaAnos(populacaoA, populacaoB, taxaA, taxaB);
 
-        printf("%d\n", anos);
+        if (anos > 100) {
+            printf("Mais de 1 seculo.\n");
+        } else {
+            printf("%d anos.\n", anos);
+        }
     }
 }
 
@@ -33,6 +37,10 @@ int calculaAnos(int populacaoA, int populacaoB, double taxaA, double taxaB) {
     while (populacaoA < populacaoB) {
         populacaoA += populacaoA * (taxaA / 100);
         populacaoB += populacaoB * (taxaB / 100);
+        j++;
+    }
+
+    if (populacaoA == populacaoB) {
         j++;
     }
 
